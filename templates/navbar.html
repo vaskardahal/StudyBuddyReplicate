@@ -1,0 +1,52 @@
+
+{% load static %}
+
+<header class="header header--loggedIn">
+
+    <div class="container">
+
+        <a href="{% url 'home' %}" class="header__logo">
+            <img src="" alt="Logo" />
+            <h1> StudyBuddy </h1>
+        </a>
+        
+        <form class="header__search" action="{%url 'home' %}" method="GET">
+
+            <label>
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+                    <title>search</title>
+                    <path
+                        d="M32 30.586l-10.845-10.845c1.771-2.092 2.845-4.791 2.845-7.741 0-6.617-5.383-12-12-12s-12 
+                        5.383-12 12c0 6.617 5.383 12 12 12 2.949 0 5.649-1.074 7.741-2.845l10.845 10.845 
+                        1.414-1.414zM12 22c-5.514 0-10-4.486-10-10s4.486-10 10-10c5.514 0 10 4.486 10 10s-4.486 
+                        10-10 10z">
+                    </path>
+                </svg>
+                <input type="text" name="q" placeholder='Search Rooms...' />
+            </label>
+            
+        </form>
+
+        <nav class="header__menu">
+
+            <!-- User logged in-->
+            {% if request.user.is_authenticated %}
+            <p> Logged in as {{request.user}} </p>
+            <a href="{% url 'logout' %}">Logout</a>
+
+            <!-- Not logged in-->
+            {% else %}
+            <a href="{% url 'login' %}">
+                <img src="" alt="AVATAR">
+                <p>Login</p>
+            </a>
+            {% endif %}
+
+        </nav>
+
+
+
+    </div>
+
+</header>
+

@@ -1,0 +1,106 @@
+{% extends 'main.html' %}
+
+<!--
+{%load crispy_forms_tags %} 
+-->
+
+
+{% block content %}
+
+<main class="auth layout">
+    {% if page == 'login' %}
+
+    <div class="container">
+        <div class="layout__box">
+
+            <div class="layout__boxHeader">
+                <div class="layout__boxTitle">
+                    <h3>Login Here</h3>
+                </div>
+            </div>
+    
+            <div class="layout__body">
+                <h2 class="auth__tagline">Find your study partner</h2>
+    
+                <form class="form" action="" method="post">
+                    {% csrf_token %} 
+    
+                    <div class="form__group">
+                        <label>Username:</label>
+                        <input type="text" name="username" placeholder="Enter Username" />
+                    </div>
+    
+                    <div class="form__group">
+                        <label>Password:</label>
+                        <input type="password" name="password" placeholder="Enter Password" />
+                    </div>
+    
+                    <button class="btn btn--main" type="submit">
+                        Login
+                    </button>
+
+                </form>
+    
+                <div class="auth__action">
+                    <p> Haven't signed up yet?</p>
+                    <a href="{% url 'register' %}">Sign Up</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+   
+    {% endif %}
+
+
+    
+    {% if page == 'register' %}
+
+    <div class="container">
+        <div class="layout__box">
+            <div class="layout__boxHeader">
+                <div class="layout__boxTitle">
+                    Register
+                </div>
+            </div>
+
+            <div class="layout__body">
+                <h2 class="auth__tagline"> Find your study partner</h2>
+
+                <form class="form" action="" method="post">
+                    {% csrf_token %} 
+
+                    <!--            
+                        {{ form|crispy }}
+                    -->
+
+                    {% for field in form %}
+                    <div class="form__group form__group">
+                      <label for="room_name">{{field.label}}</label>
+                      {{field}}
+                    </div>
+                    {% endfor %}
+            
+                    <button class="btn btn--main" type="submit">
+                        Register
+                    </button>
+                </form>
+
+                <div class="auth__action">
+                    <p> Already signed up?</p>
+                    <a href="{% url 'login' %}">Login</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+
+    </div>
+    {% endif %}
+    
+</main>
+
+{%endblock content %}
