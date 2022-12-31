@@ -117,7 +117,15 @@ a {
     height: 1.6rem;
 }
 
+.scroll::-webkit-scrollbar {
+    width: 0.6rem;
+    background-color: rgb(41, 41, 46);
+}
 
+.scroll::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    background-color: var(--color-gray);
+}
 
 
 /*==============================
@@ -259,6 +267,14 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+}
+
+.layout--2 > .container > div:first-child {
+    flex-basis: 72%;
+}
+  
+.layout--2 > .container > div:last-child {
+    flex-basis: 25%;
 }
   
 .layout--3 > .container > div:first-child {
@@ -485,6 +501,161 @@ a {
 }
 
 
+/*==============================
+=>  Room
+================================*/
+.room, 
+.participants {
+    background: var(--color-dark);
+    max-height: 87.5vh;
+    border-radius: 0.7rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.room__top, 
+.participants__top {
+    background: var(--color-dark-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: relative;
+}
+
+.room__topLeft {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+}
+  
+.room__topLeft h3,
+.participants__top {
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-light);
+}
+
+.room__topRight {
+    display: flex;
+    column-gap: 1em;
+}
+
+.room__box {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    height: 80.5vh;
+    /* overflow-y: auto; */
+    padding-bottom: 0;
+}
+
+.room__header {
+    max-height: 30vh;
+    overflow-y: auto;
+    position: absolute;
+    width: 95%;
+    background: var(--color-dark);
+    z-index: 999;
+    top: 4.4rem;
+    padding-top: 2rem;
+    padding-bottom: 0.5rem;
+}
+
+.room__info {
+    display: flex;
+    justify-content: space-between;
+}
+  
+.room__info h3 {
+    font-size: 2.4rem;
+    font-weight: 500;
+    color: var(--color-main);
+}
+
+.room__hosted p {
+    text-transform: uppercase;
+    color: var(--color-gray);
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 2;
+}
+
+.room__conversation {
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+    height: 64%;
+}
+
+.threads {
+    background: var(--color-bg);
+    border-radius: 0.7rem;
+    overflow-y: auto;
+    height: 100%;
+    margin-top: 28vh;
+    padding: 0 2rem 4rem 2rem;
+}
+
+.threads h3 {
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-gray);
+}
+
+.thread {
+    border-left: 2px solid var(--color-dark);
+    padding-left: 1rem;
+    margin: 2rem 0;
+    padding: 2rem;
+}
+
+.thread__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.thread__author {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    font-size: 1.4rem;
+}
+
+.thread__details {
+    font-size: 1.4rem;
+    margin-top: 0.5rem;
+}
+
+.room__message {
+    padding: 2rem;
+    position: absolute;
+    z-index: 111;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: transparent;
+}
+
+.room__message > form > input {
+    resize: none;
+    background-color: var(--color-dark-medium);
+    color: var(--color-light);
+    border: none;
+    outline: none;
+    border-radius: 0.7rem;
+    height: 4.5rem;
+    width: 100%;
+    margin-top: -1rem;
+    padding: 1.2rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    position: relative;
+}
+  
+.room__message > form > input::placeholder {
+    color: var(--color-light-gray);
+}
+  
 /*==============================
 =>  Delete Item
 ================================*/
